@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+.idea
+docs/html
+test/coverage
+examples/examples.js
+.coveralls.yml
