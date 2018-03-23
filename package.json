@@ -1,6 +1,6 @@
 {
   "name": "gaspard-collection",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manipulate collection of DOM elements",
   "homepage": "https://github.com/lucaperret/gaspard-collection",
   "main": "dist/gaspard-collection.umd.js",
