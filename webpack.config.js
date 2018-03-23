@@ -10,7 +10,8 @@ const banner = PACKAGE.name + ' | ' +
   PACKAGE.license + ' | ' +
   PACKAGE.homepage
 
-const configDevevelopment = {
+const configDevelopment = {
+  mode: 'development',
   entry: {
     example: './examples/index.js'
   },
@@ -42,7 +43,6 @@ const configDevevelopment = {
     watchContentBase: true
   },
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
     new FriendlyErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
@@ -58,13 +58,9 @@ const configProduction = {
     gaspard: 'gaspard'
   },
   output: {
-    filename: 'gaspard-collection.umd.js',
     path: resolve('dist'),
-    library: {
-      root: 'GaspardCollection',
-      amd: 'gaspard-collection',
-      commonjs: 'common-gaspard-collection'
-    },
+    filename: 'gaspard-collection.umd.js',
+    library: 'gaspard-collection',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -88,17 +84,8 @@ const configProduction = {
     ]
   },
   plugins: [
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.BannerPlugin(banner),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: true
-      }
-    })
+    new webpack.BannerPlugin(banner)
   ]
 }
 
-module.exports = (env) => {
-  return env && env.production ? configProduction : configDevevelopment
-}
+module.exports = (env, argv) => argv.mode === 'production' ? configProduction : configDevelopment
