@@ -1,4 +1,4 @@
-# [gaspard-collection](https://github.com/lucaperret/gaspard-collection) *0.0.1*
+# [gaspard-collection](https://github.com/lucaperret/gaspard-collection) *0.1.1*
 
 > Manipulate collection of DOM elements
 
